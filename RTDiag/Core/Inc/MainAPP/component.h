@@ -1,13 +1,18 @@
+
+#ifndef component_H
+#define component_H
 /*
- * component.h
- *
- *  Created on: 31 janv. 2024
- *      Author: Hamdi
+ * Supported device types for this project.
  */
+typedef enum {
+	lm35,
+	Moteur,
+	Ultrason,
+	arduino,
+	tcrt ,
+	qtr_8rc,
+	dht11,
+}Devicetype;
 
-#ifndef INC_MAINAPP_COMPONENT_H_
-#define INC_MAINAPP_COMPONENT_H_
 
-
-
-#endif /* INC_MAINAPP_COMPONENT_H_ */
+#endif
