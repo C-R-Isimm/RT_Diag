@@ -1,2 +1,2 @@
 # RT_Diag
-project_stm32f407
+project_stm32f407vg
