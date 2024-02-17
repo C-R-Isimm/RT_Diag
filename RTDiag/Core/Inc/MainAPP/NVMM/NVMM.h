@@ -1,13 +1,16 @@
-/*
- * NVMM.h
- *
- *  Created on: Jan 31, 2024
- *      Author: Hamdi
- */
 
-#ifndef INC_MAINAPP_NVMM_NVMM_H_
-#define INC_MAINAPP_NVMM_NVMM_H_
+#ifndef NVMM_H_
+#define NVMM_H_
+
+#include "stdint.h"
 
 
 
-#endif /* INC_MAINAPP_NVMM_NVMM_H_ */
+void NV_save_data(uint32_t Address,uint32_t data);
+
+char * NV_read_data(uint32_t Address);
+
+
+void NV_erase_data(uint32_t Address);
+
+#endif 
