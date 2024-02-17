@@ -6,8 +6,8 @@
  */
 typedef enum {
 	lm35,
-	Moteur,
-	Ultrason,
+	Motor,
+	ultrasonic,
 	arduino,
 	tcrt ,
 	qtr_8rc,
