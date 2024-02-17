@@ -1,0 +1,3 @@
+../Core/Src/MainAPP/EHM/EHM.c:12:12:EHMSensors	16	static
+../Core/Src/MainAPP/EHM/EHM.c:18:12:EHMMoter	16	static
+../Core/Src/MainAPP/EHM/EHM.c:24:12:EHMcells	16	static

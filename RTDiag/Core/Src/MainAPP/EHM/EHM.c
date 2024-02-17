@@ -2,22 +2,28 @@
  * EHM.c
  *
  *  Created on: Jan 31, 2024
- *      Author: Hamdi
+ *      Author: Omar
  */
 
 #include <stdint.h>
+
 #include "MainApp/EHM/EHM.h"
- ErrorType EHMSensors(uint8_t* SensorValues, SensorType s) {
-     // Implémentation de la fonction HandleSensors
+
+ ErrorType EHMSensors(uint8_t* SensorValues, SensorType sensor) {
+
+	 // Implementation of the function HandleSensors
+
  }
 
  ErrorType EHMMoter(uint8_t* MotorValues) {
-     // Implémentation de la fonction EHMMoter
+
+	 // Implementation of the function EHMMoter
+
  }
 
- ErrorType EHMcells(uint8_t* CellsValues, CelluleType C) {
-     // Implémentation de la fonction EHMcells
- }
+ ErrorType EHMcells(uint8_t* CellsValues, CelluleType Cells) {
 
+	 // Implementation of the function EHMcells
+ }
 
 
