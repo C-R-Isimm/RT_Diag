@@ -1,13 +1,16 @@
 /*
  * ComM.h
  *
- *  Created on: Jan 31, 2024
- *      Author: Hamdi
+ *  Created on: Feb 22, 2024
+ *      Author: garab
  */
 
-#ifndef INC_MAINAPP_COMM_COMM_H_
-#define INC_MAINAPP_COMM_COMM_H_
+#ifndef SRC_MAINAPP_COMM_COMM_H_
+#define SRC_MAINAPP_COMM_COMM_H_
+#include"MainAPP/Common/component.h"
+void ComMReadSensorValue(Devicetype Device);
+
+void ComMConfigDevice(Devicetype Device);
 
 
-
-#endif /* INC_MAINAPP_COMM_COMM_H_ */
+#endif /* SRC_MAINAPP_COMM_COMM_H_ */
