@@ -8,6 +8,8 @@
 
 #include "MainAPP/ComM/ComM.h"
 
+#include "MainAPP/UIM/UIM.h"
+
 #define NULL ((void *)0)
 
 uint32_t *TMResultfinal;
@@ -18,10 +20,6 @@ void TMDeviceTypeconfig(Devicetype Deviceconfig)
    {
       /*configuration(lm35);*/
    }
-   else if (Deviceconfig == Motor)
-   {
-      /*configuration(Motor);*/
-   }
    else if (Deviceconfig == tcrt)
    {
       /* configuration(tcrt);*/
@@ -29,10 +27,6 @@ void TMDeviceTypeconfig(Devicetype Deviceconfig)
    else if (Deviceconfig == Ultrasonic)
    {
       /*configuration(Ultrasonic);*/
-   }
-   else if (Deviceconfig == arduino)
-   {
-      /*configuration(arduino);*/
    }
    else if (Deviceconfig == qtr_8rc)
    {
@@ -46,34 +40,60 @@ void TMDeviceTypeconfig(Devicetype Deviceconfig)
    {
    }
 }
-
 // Static test functions (not visible outside this file)
 static void TMTestlm35()
 {
+  /* UIMwrite("First check: Assessing room temperature.");
+   TMResultfinal = ComMReadSensorValeur(lm35);
+   UIMwrite("Second  check: The temperature is cold.");
+   TMResultfinal = ComMReadSensorValeur(lm35);
+   UIMwrite("Third check: The temperature is hot.");
+   TMResultfinal = ComMReadSensorValeur(lm35);
+   UIMwrite("LM35 temperature sensor test completed.");
+*/
 }
 
-static void TMTestMotor()
-{
-}
+
+
 
 static void TMTesttcrt()
 {
+   /* UIMwrite("Testing TCRT sensor on black surface");
+	 TMResultfinal = ComMReadSensorValeur(tcrt);
+	 UIMwrite("Testing TCRT sensor on White surface");
+	 TMResultfinal = ComMReadSensorValeur(tcrt);
+    UIMwrite("TCRT sensor test completed.");
+*/
 }
 
 static void TMTestUltrasonic()
 {
+   /* UIMwrite("Starting ultrasonic sensor test");
+	 TMResultfinal = ComMReadSensorValeur(Ultrasonic);
+    UIMwrite("Ultrasonic sensor test completed.");
+*/
 }
 
-static void TMTestarduino()
-{
-}
 
 static void TMTestqtr_8rc()
 {
+	/* UIMwrite("Testing TCRT sensor on black surface");
+	 TMResultfinal = ComMReadSensorValeur(qtr_8rc);
+	 UIMwrite("Testing TCRT sensor on White surface");
+	 TMResultfinal = ComMReadSensorValeur(qtr_8rc);
+    UIMwrite("QTR-8RC sensor test completed.");
+*/
 }
 
 static void TMTestdht11()
 {
+	/*UIMwrite("First check: Assessing humidity.");
+	TMResultfinal = ComMReadSensorValeur(dht11);
+	UIMwrite("Second check: Verifying humidity.");
+	TMResultfinal = ComMReadSensorValeur(dht11);
+	UIMwrite("DHT11 humidity sensor test completed.");
+*/
+
 }
 
 uint32_t *TMResultTest(Devicetype Deviceconfig)
@@ -82,10 +102,7 @@ uint32_t *TMResultTest(Devicetype Deviceconfig)
    {
       TMTestlm35();
    }
-   else if (Deviceconfig == Motor)
-   {
-      TMTestMotor();
-   }
+
    else if (Deviceconfig == tcrt)
    {
       TMTesttcrt();
@@ -97,10 +114,6 @@ uint32_t *TMResultTest(Devicetype Deviceconfig)
    else if (Deviceconfig == tcrt)
    {
       TMTesttcrt();
-   }
-   else if (Deviceconfig == arduino)
-   {
-      TMTestarduino();
    }
    else if (Deviceconfig == qtr_8rc)
    {
