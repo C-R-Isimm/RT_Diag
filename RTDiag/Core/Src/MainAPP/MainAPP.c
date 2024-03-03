@@ -2,7 +2,8 @@
  * MainAPP.c
  *
  *  Created on: Jan 31, 2024
- *      Author: Hamdi
+ *      Author: Chayma GARGOUCH
  */
+#include<MainAPP/MainAPP.h>
 
 
