@@ -1,13 +1,20 @@
-/*
- * NVMM.h
- *
- *  Created on: Jan 31, 2024
- *      Author: Hamdi
- */
+#ifndef NVMM_H_
+#define NVMM_H_
+#include "stdint.h"
+#include "MainAPP/Common/component.h"
 
-#ifndef INC_MAINAPP_NVMM_NVMM_H_
-#define INC_MAINAPP_NVMM_NVMM_H_
+typedef struct {
+    // status ;
+    Devicetype component;
+    int8_t comment[100];
+} data_stock;
+
+uint32_t NV_save_data(data_stock *);
+
+uint8_t* NV_read_data(void);
 
 
+uint32_t  NV_erase_data(void);
 
-#endif /* INC_MAINAPP_NVMM_NVMM_H_ */
+#endif 
+
