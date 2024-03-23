@@ -12,7 +12,10 @@
 
 #define NULL ((void *)0)
 
-uint32_t *TMResultfinal;
+uint8_t *TMResultfinal;
+
+uint8_t tab[10];uint8_t tab1[7];
+
 
 void TMDeviceTypeconfig(Devicetype Deviceconfig)
 {
@@ -38,30 +41,44 @@ void TMDeviceTypeconfig(Devicetype Deviceconfig)
    }
    else
    {
+	   // Devicetype no supported
    }
 }
 // Static test functions (not visible outside this file)
 static void TMTestlm35()
 {
-  /* UIMwrite("First check: Assessing room temperature.");
-   TMResultfinal = ComMReadSensorValeur(lm35);
+	//int8_t i;
+   /*UIMwrite("First check: Assessing room temperature.");
+   TMResultfinal = (uint8_t *)ComMReadSensorValeur(lm35);
+    for ( i=0 , i<3 ,i++ ){
+    tab[i]= *(TMResultfinal+i);
+    }
    UIMwrite("Second  check: The temperature is cold.");
-   TMResultfinal = ComMReadSensorValeur(lm35);
+   TMResultfinal = (uint8_t *)ComMReadSensorValeur(lm35);
+    for ( i=3 , i<6 ,i++ ){
+    tab[i]= *(TMResultfinal+i);
+    }
    UIMwrite("Third check: The temperature is hot.");
-   TMResultfinal = ComMReadSensorValeur(lm35);
+   TMResultfinal = (uint8_t *)ComMReadSensorValeur(lm35);
+    for ( i=6 , i<9 ,i++ ){
+    tab[i]= *(TMResultfinal+i);
+    }
    UIMwrite("LM35 temperature sensor test completed.");
-*/
+   */
 }
-
-
-
 
 static void TMTesttcrt()
 {
    /* UIMwrite("Testing TCRT sensor on black surface");
 	 TMResultfinal = ComMReadSensorValeur(tcrt);
+	  for ( i=0 , i<3 ,i++ ){
+    tab1[i]= *(TMResultfinal+i);
+    }
 	 UIMwrite("Testing TCRT sensor on White surface");
 	 TMResultfinal = ComMReadSensorValeur(tcrt);
+	  for ( i=3 , i<6 ,i++ ){
+    tab1[i]= *(TMResultfinal+i);
+    }
     UIMwrite("TCRT sensor test completed.");
 */
 }
@@ -96,37 +113,45 @@ static void TMTestdht11()
 
 }
 
-uint32_t *TMResultTest(Devicetype Deviceconfig)
+uint8_t *TMResultTest(Devicetype Deviceconfig)
 {
    if (Deviceconfig == lm35)
    {
       TMTestlm35();
+      return TMResultfinal=tab;
    }
+
 
    else if (Deviceconfig == tcrt)
    {
       TMTesttcrt();
+      return TMResultfinal=tab1;
+
    }
    else if (Deviceconfig == Ultrasonic)
    {
       TMTestUltrasonic();
+      return TMResultfinal;
    }
    else if (Deviceconfig == tcrt)
    {
       TMTesttcrt();
+      return TMResultfinal;
    }
    else if (Deviceconfig == qtr_8rc)
    {
       TMTestqtr_8rc();
+      return TMResultfinal;
    }
    else if (Deviceconfig == dht11)
    {
       TMTestdht11();
+      return TMResultfinal;
    }
    else
    {
-      TMResultfinal = NULL;
+	   return TMResultfinal = NULL;
    }
 
-   return TMResultfinal;
+
 }
