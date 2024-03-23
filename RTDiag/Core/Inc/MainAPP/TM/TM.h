@@ -14,6 +14,6 @@
 
 void TMDeviceTypeconfig(Devicetype Deviceconfig); //  function to configure the device type
 
-uint32_t *TMResultTest(Devicetype Deviceconfig); //  function to get the test result
+uint8_t *TMResultTest(Devicetype Deviceconfig); //  function to get the test result
 
 #endif /* INC_MAINAPP_TM_TM_H_ */
