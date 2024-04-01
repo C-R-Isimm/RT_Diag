@@ -1,8 +1,10 @@
 #include "MainAPP/NVMM/NVMM.h"
 #include "stm32f4xx_hal.h"
 
-uint32_t *data;
-uint32_t adresse=0x080E0000;
+volatile uint32_t adresse=0x080E0000;
+uint8_t c=0;
+
+static void  NV_convert_to_string (uint32_t*,char * );
 
 
 uint32_t NV_save_data(data_stock *Data){
@@ -11,23 +13,23 @@ int16_t sofar=0;
 uint32_t *ptr=(uint32_t *)Data;
 
    /*Check the valid space*/
-uint32_t *check_adresse=(uint32_t *)0x080E0000;
-while(1){
-	if(*check_adresse==0xffffffff)
-	{
-		adresse=(uint32_t)check_adresse;
-		break;
+volatile uint32_t check_adresse=0x080E0000;
+if (c != 0){
+
+	for(uint8_t i=0; i<=c;i++){
+		check_adresse=check_adresse+sizeof(data_stock);
 	}
-	check_adresse++;
+
 }
 
+
                   /****/
-uint16_t numberofwords=(sizeof(data_stock)/4);
+uint16_t numberofwords=(sizeof(data_stock)/4+sizeof(data_stock)%4 !=0)/4;
 	while (sofar<numberofwords)
 		   {
-		     if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,adresse, *ptr) == HAL_OK)
+		     if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,check_adresse, *ptr) == HAL_OK)
 		     {
-		    	 adresse +=4;
+		    	 check_adresse +=4;
 		    	 ptr++;
 		    	 sofar++;
 		     }
@@ -37,7 +39,7 @@ uint16_t numberofwords=(sizeof(data_stock)/4);
 		    	 return HAL_FLASH_GetError ();
 		     }
 		   }
-
+          c++;
 		  HAL_FLASH_Lock();
 
 		   return 0;
@@ -46,17 +48,24 @@ uint16_t numberofwords=(sizeof(data_stock)/4);
 
 
 uint8_t * NV_read_data(){
-	while (1)
-		{
+uint32_t *data ;
+char* data_stored;// !!!!!
+if (c==0){
 
-			*data = *(__IO uint32_t *)adresse;
-			if(*data==0xffffffff){
-				*data='\0';
-				break;
-			}
-			adresse+= 4;
-			data++;
-		}
+	//message for  no data read
+}else
+{
+uint8_t compteur = (c*(sizeof(data_stock)/4+sizeof(data_stock)%4 !=0))/4;
+	 for (uint8_t i=0;i<=compteur;i++){
+	*data = *(__IO uint32_t *)adresse;
+	adresse+= 4;
+	data++;
+	 }
+
+	 // converte and send
+	 NV_convert_to_string (data,data_stored);
+}
+
 }
 
 uint32_t NV_erase_data(void){
@@ -82,7 +91,21 @@ uint32_t NV_erase_data(void){
 		  if (HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError) != HAL_OK)
 		  {
 			  return HAL_FLASH_GetError ();
-		  }
-		  else { return 0;}
+		  }else
+		  {
+			  c=0;
+			  return 0;}
+}
+
+
+static void NV_convert_to_string (uint32_t* input,char* data_stored )
+{
+int number_of_bites = ((strlen((char *)input)/4) + ((strlen((char *)input) % 4) != 0)) *4;
+
+for (int i=0; i<number_of_bites; i++)
+	{
+	data_stored[i] = input[i/4]>>(8*(i%4));
+	}
+// usb mariem
 }
 

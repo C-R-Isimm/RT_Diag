@@ -2,7 +2,7 @@
 #define NVMM_H_
 #include "stdint.h"
 #include "MainAPP/Common/component.h"
-
+#include "string.h"
 typedef struct {
     // status ;
     Devicetype component;
