@@ -7,9 +7,6 @@
 #ifndef FSM_H_
 #define FSM_H_
 
-#include <stdbool.h>
-
-
 
 
 typedef enum 			//states of the finite state machine
@@ -23,10 +20,6 @@ typedef enum 			//states of the finite state machine
 
 
 //Events function 
-int8_t Read_input(int8_t * input);
-bool configDevice(Devicetype device);
-
-
 
 
 #endif

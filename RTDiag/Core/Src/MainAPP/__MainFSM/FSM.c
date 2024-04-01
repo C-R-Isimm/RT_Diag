@@ -4,52 +4,41 @@
  *  Created on: Mar 19, 2024
  *      Author: chayma
  */
-#include<MainAPP/__MainFSM/FSM.h>
+#include <MainAPP/__MainFSM/FSM.h>
 #include <MainAPP/Common/component.h>
 #include <stdint.h>
-#include <stdbool.h>
 
-int8_t errorcod = -1 ;
+#define CHECK_DEVICE(device)({(device == lm35 ? true : false) / (device == Ultrasonic? true : false)/ (device == dht11 ? true : false )/ (device == tcrt ? true : false )})
+// Define constant variable
+state State = IDLE ;                                     //state initialization to IDLE state
+Devicetype device ;                                      //device declaration
 
-
-int8_t Read_input(int8_t * input)
+//Possible states 
+void FSM()
 {
-    if(scanf("%d",input) == 1)
+
+	switch(State)
     {
-        return 1;
-    }else
-    {
-        return errorcod;
+        case IDLE :
+
+
+        break;
+        case DeviceConfig :
+                                //if the device configuration is successful : transition to device testing state
+
+        break;
+        case DeviceTest :
+
+        break;    
+        case ErrorHandler :
+
+        break;   
+        case PassState :
+
+        break; 
+        default :
+
+        break;                           
     }
 }
 
-bool configDevice(Devicetype device)
-{
-    switch(device)
-    {
-        case lm35 :
-        return true ; 
-
-        case Ultrasonic : 
-        return true ; 
-
-        case arduino :
-        return true ; 
-
-        case tcrt : 
-        return true ; 
-
-        case dht11:
-        return true ;
-
-        case qtr_8rc : 
-        return true ; 
-
-        case Motor : 
-        return true ; 
-        
-        default : 
-        return false ;  
-
-    }
-}
