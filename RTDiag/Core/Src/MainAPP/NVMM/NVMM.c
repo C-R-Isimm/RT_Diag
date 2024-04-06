@@ -1,29 +1,43 @@
+
+/**
+ * @file NVMM.c
+ * @brief Functions for reading, writing, and erasing data in flash memory.
+ * 
+ * This file contains functions to perform operations on flash memory, including saving,
+ * reading, and erasing data. These functions are designed for use with a specific 
+ * microcontroller stm32f407VG and memory layout.
+ */
+
+
+
 #include "MainAPP/NVMM/NVMM.h"
 #include "stm32f4xx_hal.h"
 
 volatile uint32_t adresse=0x080E0000;
-uint8_t c=0;
+uint8_t flag=0;
 
-static void  NV_convert_to_string (uint32_t*,char * );
-
-
-uint32_t NV_save_data(data_stock *Data){
+/**
+ * @brief Save data into flash memory.
+ * 
+ * @param Data Pointer to the data to be saved.
+ * @return uint32_t Error code, 0 if saving is successful.
+ */
+uint32_t NvSaveData(data_stock *Data){
 
 int16_t sofar=0;
 uint32_t *ptr=(uint32_t *)Data;
 
    /*Check the valid space*/
 volatile uint32_t check_adresse=0x080E0000;
-if (c != 0){
-
-	for(uint8_t i=0; i<=c;i++){
+if (flag != 0)
+{
+	for(uint8_t i=0; i<=flag;i++){
 		check_adresse=check_adresse+sizeof(data_stock);
 	}
-
 }
 
 
-                  /****/
+    /*Check the valid space*/
 uint16_t numberofwords=(sizeof(data_stock)/4+sizeof(data_stock)%4 !=0)/4;
 	while (sofar<numberofwords)
 		   {
@@ -38,39 +52,47 @@ uint16_t numberofwords=(sizeof(data_stock)/4+sizeof(data_stock)%4 !=0)/4;
 		       /* Error occurred while writing data in Flash memory*/
 		    	 return HAL_FLASH_GetError ();
 		     }
-		   }
-          c++;
+		    }
+          flag++;
 		  HAL_FLASH_Lock();
-
-		   return 0;
+return 0;
 
 }
 
+/**
+ * @brief Read data from flash memory.
+ * 
+ * @param numofdata Number of data to read.
+ * @return data_stock* Pointer to the read data, or NULL if no data is available.
+ */
 
-uint8_t * NV_read_data(){
-uint32_t *data ;
-char* data_stored;// !!!!!
-if (c==0){
+data_stock* NvReadData(uint8_t numofdata ){
+static data_stock result;
+uint32_t adresseOfread=0x080E0000;
+if (flag==0)
+{
 
 	//message for  no data read
-}else
+	return NULL;
+}
+else
 {
-uint8_t compteur = (c*(sizeof(data_stock)/4+sizeof(data_stock)%4 !=0))/4;
-	 for (uint8_t i=0;i<=compteur;i++){
-	*data = *(__IO uint32_t *)adresse;
-	adresse+= 4;
-	data++;
-	 }
-
-	 // converte and send
-	 NV_convert_to_string (data,data_stored);
-}
+	adresseOfread=(0x080E0000 + (sizeof(data_stock)*numofdata-1));
+result.component = (Devicetype)(*(__IO uint32_t *)adresseOfread);
+memcpy(result.comment, (int8_t *)(adresseOfread + sizeof(Devicetype)), sizeof(result.comment));
 
 }
+return &result;
+}
 
-uint32_t NV_erase_data(void){
-	static FLASH_EraseInitTypeDef EraseInitStruct;
-		uint32_t SECTORError;
+/**
+ * @brief Erase data stored in flash memory.
+ * 
+ * @return uint32_t Error code, 0 if erasing is successful.
+ */
+uint32_t NvEraseData(void){
+static FLASH_EraseInitTypeDef EraseInitStruct;
+uint32_t SECTORError;
 		 /* Unlock the Flash to enable the flash control register access *************/
 		  HAL_FLASH_Unlock();
 
@@ -91,21 +113,13 @@ uint32_t NV_erase_data(void){
 		  if (HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError) != HAL_OK)
 		  {
 			  return HAL_FLASH_GetError ();
-		  }else
+		  }
+		  else
 		  {
-			  c=0;
-			  return 0;}
+		   flag=0;
+		    return 0;
+		   }
 }
 
 
-static void NV_convert_to_string (uint32_t* input,char* data_stored )
-{
-int number_of_bites = ((strlen((char *)input)/4) + ((strlen((char *)input) % 4) != 0)) *4;
-
-for (int i=0; i<number_of_bites; i++)
-	{
-	data_stored[i] = input[i/4]>>(8*(i%4));
-	}
-// usb mariem
-}
 
