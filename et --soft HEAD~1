@@ -1,0 +1,66 @@
+[33mcommit 697cbbfa0ec1306916d1dd9b9c3793872bfca324[m[33m ([m[1;36mHEAD -> [m[1;32mUIM[m[33m, [m[1;31morigin/UIM[m[33m)[m
+Merge: ba057fe 2901403
+Author: MariemGHOUDI <mariemghoudi3@gmail.com>
+Date:   Sun Mar 31 13:55:53 2024 +0100
+
+    USB COMMUNICATION
+
+[33mcommit ba057fe5e5a86c98790676cfabe94753462e4e14[m
+Author: MariemGHOUDI <mariemghoudi3@gmail.com>
+Date:   Sun Mar 31 13:36:41 2024 +0100
+
+    USB COMMUNICATION
+
+[33mcommit 44e1973d5cc61aea93617481735b06a70e3d75a6[m
+Author: MariemGHOUDI <mariemghoudi3@gmail.com>
+Date:   Fri Feb 23 22:57:37 2024 +0100
+
+    Prototype_Function
+
+[33mcommit 290140343df8d73a806c07b1d783f6bfee6085e9[m
+Author: MariemGHOUDI <mariemghoudi3@gmail.com>
+Date:   Fri Feb 23 22:57:37 2024 +0100
+
+    Prototype_Function
+
+[33mcommit b36560857bb71c621c5d39e6600da8c73f5283ff[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: chayma gargouch <88083391+Chayma123-hub@users.noreply.github.com>
+Date:   Sun Mar 3 13:21:07 2024 +0100
+
+    Add the FSM diagram and modifie the .ignore file
+
+[33mcommit 7b61e53b6b99ffc644a90e06f381cb5f2be574f2[m
+Author: Omar <154700885+OmarBannour@users.noreply.github.com>
+Date:   Sun Feb 18 14:35:31 2024 +0100
+
+    prototype function for Error handle manager
+
+[33mcommit b324401ca7048703ebe69aa39b282d4fc63f5728[m
+Author: rouakammoun12 <154470300+rouakammoun12@users.noreply.github.com>
+Date:   Sat Feb 17 20:53:42 2024 +0100
+
+    creation of TM. c and TM. h functions
+
+[33mcommit c6ebc7127bdd8c6e07c49b0b31b0f3d215ed761a[m
+Author: mouadhgit <mouadhdahech2@gmail.com>
+Date:   Sat Feb 17 18:15:19 2024 +0100
+
+    Add darwio file and delete Debug folder
+
+[33mcommit 5bc5738ad9b39d0b32aa286122c5b2c6f301a1e2[m
+Author: teyebhamdi <hamditeyeb1999@gmail.com>
+Date:   Fri Feb 16 00:16:36 2024 +0100
+
+    add file .gitignore and file component.h
+
+[33mcommit 93f92f5d71558af154db2972251e0c025f82da9b[m
+Author: teyebhamdi <hamditeyeb1999@gmail.com>
+Date:   Wed Jan 31 15:40:45 2024 +0100
+
+    create architecture of software
+
+[33mcommit 4b35abdadb6d1801a6b52f047fa21cc5567f2a08[m
+Author: hamdi <123975059+teyebhamdi@users.noreply.github.com>
+Date:   Wed Jan 31 14:56:05 2024 +0100
+
+    Initial commit

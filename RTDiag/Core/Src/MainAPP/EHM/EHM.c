@@ -19,7 +19,6 @@
  */
 
 ErrorType EHMHandleSensors(uint8_t* SensorValues, Devicetype Sensor) {
-
  }
 
 /**
@@ -30,7 +29,6 @@ ErrorType EHMHandleSensors(uint8_t* SensorValues, Devicetype Sensor) {
  * @return ErrorType
  */
  ErrorType EHMHandleMotor(uint8_t* MotorValues) {
-
  }
 
 
