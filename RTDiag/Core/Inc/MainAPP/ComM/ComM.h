@@ -5,12 +5,18 @@
  *      Author: garab
  */
 
-#ifndef SRC_MAINAPP_COMM_COMM_H_
-#define SRC_MAINAPP_COMM_COMM_H_
+#ifndef SRC_MAINAPP_COMM_H_
+
+#define SRC_MAINAPP_COMM_H_
+
 #include"MainAPP/Common/component.h"
-void ComMReadSensorValue(Devicetype Device);
+
+#include "stm32f4xx_hal.h"
+
+uint32_t ComMReadSensorValue(Devicetype Device);
 
 void ComMConfigDevice(Devicetype Device);
+
 
 
 #endif /* SRC_MAINAPP_COMM_COMM_H_ */

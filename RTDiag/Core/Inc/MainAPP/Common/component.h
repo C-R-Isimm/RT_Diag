@@ -5,14 +5,13 @@
  * Supported device types for this project.
  */
 typedef enum {
-	lm35,
-	Motor,
-	Ultrasonic,
-	arduino,
-	tcrt ,
-	qtr_8rc,
-	dht11,
-}Devicetype;
-
+    lm35,
+    Motor,
+    Ultrasonic,
+    arduino,
+    tcrt,
+    qtr_8rc,
+    dht11,
+} Devicetype;
 
 #endif
