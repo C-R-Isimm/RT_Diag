@@ -37,5 +37,3 @@ ErrorType EHMHandleSensors(uint8_t *SensorValues, Devicetype Sensor);
 ErrorType EHMHandleMotor(uint8_t *MotorValues);
 
 #endif /* INC_MAINAPP_EHM_EHM_H_ */
-
-
