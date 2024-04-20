@@ -61,10 +61,6 @@ void Error_Handler(void);
 #define ADC_READ_GPIO_Port GPIOA
 #define RX_UART_Pin GPIO_PIN_1
 #define RX_UART_GPIO_Port GPIOA
-#define WRITE_GPIO_Pin GPIO_PIN_8
-#define WRITE_GPIO_GPIO_Port GPIOC
-#define READ_GPIO_Pin GPIO_PIN_9
-#define READ_GPIO_GPIO_Port GPIOC
 #define TX_UART_Pin GPIO_PIN_10
 #define TX_UART_GPIO_Port GPIOC
 

@@ -14,4 +14,5 @@ typedef enum {
     dht11,
 } Devicetype;
 
+
 #endif
