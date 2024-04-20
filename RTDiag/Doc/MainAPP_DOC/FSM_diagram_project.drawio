@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-02T19:14:27.860Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="pHOmpk03ehwpr4O-bEGV" version="24.0.1" type="google">
+<mxfile host="app.diagrams.net" modified="2024-04-13T21:40:02.909Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="KjgSBbN5EM8_R4IaEH8M" version="24.2.5" type="google">
   <diagram name="Page-1" id="5OWkqORfowP5ucrxuJD-">
     <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -82,8 +82,10 @@
             <mxPoint x="700" y="400" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Nt3nnE9oyjvroAX6vslq-5" value="Data Not Supportable" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="1">
-          <mxGeometry x="600" y="350" as="geometry" />
+        <mxCell id="Nt3nnE9oyjvroAX6vslq-5" value="Data Not Supportable/&lt;div&gt;configuration error&lt;/div&gt;" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="600" y="350" as="geometry">
+            <mxPoint x="7" y="-6" as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
