@@ -63,7 +63,7 @@ uint8_t buffer[64];
   * @brief  The application entry point.
   * @retval int
   */
-int main(void)
+/*int main(void)
 {
   /* USER CODE BEGIN 1 */
 
@@ -94,16 +94,17 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
+/*  while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  UIM_Transmit_FS((uint8_t *) data, strlen(data));
+/*	  UIM_Transmit_FS((uint8_t *) data, strlen(data));
 	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
-}
+//}
+
 
 /**
   * @brief System Clock Configuration
