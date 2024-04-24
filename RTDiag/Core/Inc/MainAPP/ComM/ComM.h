@@ -14,11 +14,6 @@
 
 uint32_t ComMReadSensorValue(Devicetype Device);
 
-void ComMConfigDevice(Devicetype Device);
-
-typedef enum {
-	input ,
-	output,
-} GPIOMode;
+HAL_StatusTypeDef ComMConfigDevice(Devicetype Device);
 
 #endif /* SRC_MAINAPP_COMM_COMM_H_ */
