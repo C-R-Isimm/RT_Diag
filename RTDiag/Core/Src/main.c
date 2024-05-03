@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include"MainAPP/NVMM/NVMM.h"
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,12 +50,13 @@
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
-
+uint8_t *  buffer;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+data_stock data ={.component = Motor,.comment = "This_is_a_comment"};
+data_stock *dt;
 /* USER CODE END 0 */
 
 /**
@@ -87,6 +89,11 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
 
+  NvEraseData();
+  NvSaveData(&data);
+  NvSaveData(&data);
+  dt=NvReadData(1);
+  NvEraseData();
   /* USER CODE END 2 */
 
   /* Infinite loop */
